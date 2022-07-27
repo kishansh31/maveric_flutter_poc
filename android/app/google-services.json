@@ -7,6 +7,35 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:252290518099:android:e158baaad1712a43cc0aa6",
+        "android_client_info": {
+          "package_name": "com.example.maveric_flutter_poc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252290518099-6kek8qekbq1ui3037v9s3j3b1d4ntivd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBym6Fwry353j05j4B2NEc4aYi7lmsE9rk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252290518099-6kek8qekbq1ui3037v9s3j3b1d4ntivd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:252290518099:android:74be9cd16d67a78acc0aa6",
         "android_client_info": {
           "package_name": "com.maveric.phone_verification"
