@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 import 'package:maveric_flutter_poc/app/pages/splash/splash_controller.dart';
+import 'package:maveric_flutter_poc/app/widget/banner_image.dart';
 import 'package:sizer/sizer.dart';
 
 class SplashView extends StatelessWidget {
@@ -30,13 +31,7 @@ class SplashView extends StatelessWidget {
         child: Obx(() {
           return Stack(
             children: [
-              Container(
-                color: Colors.white,
-                padding: EdgeInsets.symmetric(horizontal: 80),
-                child: Center(
-                  child: Image.asset('assets/mav_logo.png'),
-                ),
-              ),
+              BannerImage('assets/mav_logo.png', 80),
               Positioned(
                 bottom: 20,
                 left: 0,

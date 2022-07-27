@@ -1,12 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:maveric_flutter_poc/app/pages/home/home_screen.dart';
-import 'package:maveric_flutter_poc/app/pages/login/login_screen.dart';
+// import 'package:maveric_flutter_poc/app/pages/home/home_screen.dart';
+// import 'package:maveric_flutter_poc/app/pages/login/login_screen.dart';
 import 'package:maveric_flutter_poc/app/pages/splash/splash_view.dart';
 
-import 'app/pages/splash/splash_screen.dart';
+// import 'app/pages/splash/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class InitializerWidget extends StatefulWidget {
+/*class InitializerWidget extends StatefulWidget {
   const InitializerWidget({Key key}) : super(key: key);
 
   @override
@@ -68,4 +68,4 @@ class _InitializerWidgetState extends State<InitializerWidget> {
         // :  const SplashScreen();
         :  const HomeScreen();
   }
-}
+}*/
