@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:maveric_flutter_poc/app/pages/home/home_screen.dart';
 import 'package:maveric_flutter_poc/app/pages/login/login_screen.dart';
 
 import 'app/pages/splash/splash_screen.dart';
@@ -61,6 +62,7 @@ class _InitializerWidgetState extends State<InitializerWidget> {
     )
         : _user == null
         ? const LoginScreen()
-        :  const SplashScreen();
+        // :  const SplashScreen();
+        :  const HomeScreen();
   }
 }
