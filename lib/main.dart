@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:maveric_flutter_poc/app/pages/splash/splash_view.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,7 +14,34 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return LayoutBuilder(
+      //return LayoutBuilder
+      builder: (context, constraints) {
+        return OrientationBuilder(
+          //return OrientationBuilder
+          builder: (context, orientation) {
+            //initialize SizerUtil()
+            /*SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+              // statusBarColor: Color(0xF0F3F5F9),
+                statusBarColor: Colors.white,
+                statusBarIconBrightness:
+                Brightness.dark //or set color with: Color(0xFF0000FF)
+            ));*/
+            // SizerUtil().init(constraints, orientation); //initialize SizerUtil
+            SizerUtil.setScreenSize(constraints, orientation); //initialize SizerUtil
+            return GetMaterialApp(
+              theme: ThemeData(
+                primarySwatch: Colors.blueGrey,
+                visualDensity: VisualDensity.adaptivePlatformDensity,
+              ),
+              // home: MyHomePage(title: 'Flutter Demo Home Page'),
+              home: SplashView(),
+            );
+          },
+        );
+      },
+    );
+    /*return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -23,9 +54,11 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        secondaryHeaderColor: Colors.lightBlueAccent
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SplashView(),
+    );*/
   }
 }
 
