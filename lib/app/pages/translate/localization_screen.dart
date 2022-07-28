@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:maveric_flutter_poc/app/pages/translate/world_language.dart';
 
 class LocalizationScreen extends StatefulWidget {
   const LocalizationScreen({Key key}) : super(key: key);
@@ -11,6 +12,18 @@ class LocalizationScreen extends StatefulWidget {
 class _LocalizationScreenState extends State<LocalizationScreen> {
   @override
   Widget build(BuildContext context) {
+    WidgetsFlutterBinding.ensureInitialized();
+    runApp(
+      GetMaterialApp(
+        home: const LocalizationScreen(),
+        translations:
+            WorldLanguage(), //Language class from world_languages.dart
+        locale: const Locale(
+            'ts', 'IN'), // translations will be displayed in that locale
+        fallbackLocale: const Locale('ts',
+            'IN'), // specify the fallback locale in case an invalid locale is selected.
+      ),
+    );
     return Scaffold(
       appBar: AppBar(
           title: const Text("Language Translation"),
