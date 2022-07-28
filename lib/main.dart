@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 // import 'package:maveric_flutter_poc/app/pages/login/login_screen.dart';
 import 'package:maveric_flutter_poc/app/pages/splash/splash_view.dart';
 
+import 'app/pages/home/home_screen.dart';
+
 // import 'app/pages/splash/splash_screen.dart';
 
 void main() async {
@@ -28,7 +30,8 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         // home: const InitializerWidget());
-        home: SplashView());
+        //home: SplashView());
+        home: const HomeScreen());
   }
 }
 
