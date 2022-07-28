@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         // home: const InitializerWidget());
-        //home: SplashView());
-        home: const HomeScreen());
+        home: SplashView());
+        //home: const HomeScreen());
   }
 }
 
