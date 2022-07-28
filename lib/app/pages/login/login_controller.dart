@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:maveric_flutter_poc/app/pages/home/home_screen.dart';
 
@@ -10,7 +10,7 @@ class LoginController extends GetxController {
   var isLoading = false.obs;
   var isOtpSend = false.obs;
 
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   String verificationId;
 
