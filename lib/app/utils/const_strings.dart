@@ -6,4 +6,6 @@ class ConstStrings {
   static var str_mobile = 'Mobile';
   static var str_otp = 'Otp';
 
+  static var str_home_screen = 'Home Screen';
+
 }
