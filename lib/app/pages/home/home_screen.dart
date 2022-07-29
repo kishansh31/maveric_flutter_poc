@@ -1,37 +1,84 @@
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:maveric_flutter_poc/app/pages/home/home_screen_controller.dart';
+import 'package:maveric_flutter_poc/app/pages/login/login_view.dart';
+import 'package:maveric_flutter_poc/app/pages/translate/localization_screen.dart';
 
-class HomeScreen extends StatelessWidget {
-  HomeScreenController homeScreenController = Get.put(HomeScreenController());
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  static const String _title = 'Home Page';
+  FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return SafeArea(
-      child: Container(
-        color: Colors.white,
-        child: Center(
-          child: GestureDetector(
-            onTap: () {
-              homeScreenController.redirectToLocalization();
+    return MaterialApp(
+      title: _title,
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: const HomePage(),
+      ),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  Widget build(BuildContext context) {
+    final ButtonStyle style =
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ElevatedButton(
+            style: style,
+            onPressed: () {
+              Get.to(() => LoginView());
             },
-            child: Container(
-              color: Colors.teal,
-              height: 50,
-              width: 200,
-              child: Center(
-                child: Text(
-                  'Localization',
-                  style: TextStyle(
-                    fontSize: 15.0,
-                  ),
-                ),
-              ),
-            ),
+            child: const Text('Login'),
           ),
-        ),
+          const SizedBox(height: 30),
+          ElevatedButton(
+            style: style,
+            onPressed: () {
+              Get.to(() => const LocalizationScreen());
+            },
+            child: const Text('Translator'),
+          ),
+          const SizedBox(height: 30),
+          ElevatedButton(
+            style: style,
+            onPressed: () {
+              //Get.to(() => const RestAPI());
+            },
+            child: const Text('Rest API'),
+          ),
+          const SizedBox(height: 30),
+          ElevatedButton(
+            style: style,
+            onPressed: () {
+              Future<void> _signOut() async {
+                await FirebaseAuth.instance.signOut();
+              }
+              _signOut();
+              Get.offAll(()=> LoginView());
+            },
+            child: const Text('Logout'),
+          ),
+        ],
       ),
     );
   }
