@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:maveric_flutter_poc/app/api/post_page.dart';
 import 'package:maveric_flutter_poc/app/pages/login/login_view.dart';
 import 'package:maveric_flutter_poc/app/pages/translate/localization_screen.dart';
 
@@ -43,14 +44,14 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          ElevatedButton(
-            style: style,
-            onPressed: () {
-              Get.to(() => LoginView());
-            },
-            child: const Text('Login'),
-          ),
-          const SizedBox(height: 30),
+          // ElevatedButton(
+          //   style: style,
+          //   onPressed: () {
+          //     Get.to(() => LoginView());
+          //   },
+          //   child: const Text('Login'),
+          // ),
+         // const SizedBox(height: 30),
           ElevatedButton(
             style: style,
             onPressed: () {
@@ -62,7 +63,7 @@ class _HomePageState extends State<HomePage> {
           ElevatedButton(
             style: style,
             onPressed: () {
-              //Get.to(() => const RestAPI());
+              Get.to(() =>  const PostPage());
             },
             child: const Text('Rest API'),
           ),
