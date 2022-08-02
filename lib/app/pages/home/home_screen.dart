@@ -10,12 +10,14 @@ import 'package:maveric_flutter_poc/app/utils/const_font_styles.dart';
 import 'package:maveric_flutter_poc/app/utils/const_strings.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreenController homeScreenController = Get.put(HomeScreenController());
+  // HomeScreenController homeScreenController = Get.put(HomeScreenController(context: context));
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     // throw UnimplementedError();
+    HomeScreenController homeScreenController = Get.put(HomeScreenController(context: context));
+
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle(
