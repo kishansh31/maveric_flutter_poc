@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:maveric_flutter_poc/app/api/post_page.dart';
 import 'package:maveric_flutter_poc/app/pages/login/login_view.dart';
 import 'package:maveric_flutter_poc/app/pages/rest_api/population_list.dart';
 import 'package:maveric_flutter_poc/app/pages/translate/localization_screen.dart';
@@ -11,7 +12,7 @@ class HomeScreenController extends GetxController {
 
   HomeScreenController({this.context});
 
-  final List<String> items = ['Translator', 'REST APIS', 'Popups', 'GetX Popup', 'Logout'];
+  final List<String> items = ['Translator', 'REST APIS', 'Popups', 'GetX Popup', 'REST APIS 1', 'Logout'];
 
   @override
   void onInit() {
@@ -37,6 +38,9 @@ class HomeScreenController extends GetxController {
     } else if (index == 3) {
       showPopupGetX();
     } else if (index == 4) {
+      Get.to(() =>  const PostPage());
+    }
+    else if (index == 5) {
       // Logout function from here..
       _signOut();
       Get.offAll(() => LoginView());
@@ -109,7 +113,7 @@ class HomeScreenController extends GetxController {
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         print('Clicked on Btn 1');
                         Get.back();
                       },
