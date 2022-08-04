@@ -10,7 +10,7 @@ enum MobileVerificationState {
 }
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -23,9 +23,9 @@ class _LoginScreenState extends State<LoginScreen> {
   final phoneController = TextEditingController();
   final otpController = TextEditingController();
 
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  String verificationId;
+  late String verificationId;
 
   bool showLoading = false;
 
@@ -51,23 +51,22 @@ class _LoginScreenState extends State<LoginScreen> {
       setState(() {
         showLoading = false;
       });
-
       _scaffoldKey.currentState
-          .showSnackBar(SnackBar(content: Text(e.message)));
+          ?.showSnackBar(SnackBar(content: Text(e.message.toString())));
     }
   }
 
   getMobileFormWidget(context) {
     return Column(
       children: [
-        Spacer(),
+        const Spacer(),
         TextField(
           controller: phoneController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: "Phone Number",
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
         FlatButton(
@@ -88,8 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 setState(() {
                   showLoading = false;
                 });
-                _scaffoldKey.currentState.showSnackBar(
-                    SnackBar(content: Text(verificationFailed.message)));
+                _scaffoldKey.currentState?.showSnackBar(
+                    SnackBar(content: Text(verificationFailed.message.toString())));
               },
               codeSent: (verificationId, resendingToken) async {
                 setState(() {
@@ -101,11 +100,11 @@ class _LoginScreenState extends State<LoginScreen> {
               codeAutoRetrievalTimeout: (verificationId) async {},
             );
           },
-          child: Text("SEND"),
+          child:  Text("SEND"),
           color: Colors.blue,
           textColor: Colors.white,
         ),
-        Spacer(),
+        const Spacer(),
       ],
     );
   }
@@ -116,11 +115,11 @@ class _LoginScreenState extends State<LoginScreen> {
         Spacer(),
         TextField(
           controller: otpController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: "Enter OTP",
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
         FlatButton(
@@ -131,11 +130,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
             signInWithPhoneAuthCredential(phoneAuthCredential);
           },
-          child: Text("VERIFY"),
+          child:  Text("VERIFY"),
           color: Colors.blue,
           textColor: Colors.white,
         ),
-        Spacer(),
+        const Spacer(),
       ],
     );
   }
@@ -148,7 +147,7 @@ class _LoginScreenState extends State<LoginScreen> {
         key: _scaffoldKey,
         body: Container(
           child: showLoading
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : currentState == MobileVerificationState.SHOW_MOBILE_FORM_STATE

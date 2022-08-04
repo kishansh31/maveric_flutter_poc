@@ -10,7 +10,7 @@ import 'package:maveric_flutter_poc/app/utils/custom_dialogs.dart';
 class HomeScreenController extends GetxController {
   BuildContext context;
 
-  HomeScreenController({this.context});
+  HomeScreenController({required this.context});
 
   final List<String> items = ['Translator', 'REST APIS', 'Popups', 'GetX Popup', 'REST APIS 1', 'Logout'];
 
@@ -21,7 +21,7 @@ class HomeScreenController extends GetxController {
   }
 
   void redirectToLocalization() {
-    Get.to(() => LocalizationScreen());
+    Get.to(() =>  LocalizationScreen());
   }
 
   void redirectionEvent(int index) {
@@ -38,7 +38,8 @@ class HomeScreenController extends GetxController {
     } else if (index == 3) {
       showPopupGetX();
     } else if (index == 4) {
-      Get.to(() =>  const PostPage());
+      Get.to(() =>  PostPage());
+      //onNext()
     }
     else if (index == 5) {
       // Logout function from here..
@@ -74,8 +75,8 @@ class HomeScreenController extends GetxController {
   void showPopupGetX() {
     Get.defaultDialog(
       title: 'Getx Popup',
-      titlePadding: EdgeInsets.only(top: 20.0),
-      titleStyle: TextStyle(
+      titlePadding: const EdgeInsets.only(top: 20.0),
+      titleStyle: const TextStyle(
         fontSize: 13.0,
         color: Colors.black,
         fontFamily: 'Poppins Bold',
@@ -86,10 +87,10 @@ class HomeScreenController extends GetxController {
       content: Container(
         height: 100.0,
         width: 300.0,
-        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Stack(
           children: [
-            Positioned(
+            const Positioned(
               top: 0.0,
               left: 0.0,
               right: 0.0,
@@ -118,13 +119,13 @@ class HomeScreenController extends GetxController {
                         Get.back();
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 10.0),
-                        margin: EdgeInsets.only(right: 5.0),
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        margin: const EdgeInsets.only(right: 5.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           color: Colors.blue,
                         ),
-                        child: Text(
+                        child: const Text(
                           'Btn 1',
                           style: TextStyle(
                             fontSize: 12.0,
@@ -144,13 +145,13 @@ class HomeScreenController extends GetxController {
                         Get.back();
                       },
                       child: Container(
-                        padding: EdgeInsets.symmetric(vertical: 10.0),
-                        margin: EdgeInsets.only(left: 5.0),
+                        padding: const EdgeInsets.symmetric(vertical: 10.0),
+                        margin: const EdgeInsets.only(left: 5.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           color: Colors.teal,
                         ),
-                        child: Text(
+                        child: const Text(
                           'Btn 2',
                           style: TextStyle(
                             fontSize: 12.0,

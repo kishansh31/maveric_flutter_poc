@@ -1,18 +1,17 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:maveric_flutter_poc/app/api/reomte_service.dart';
 
-import '../../entites/post.dart';
+import '../../domain/entites/post.dart';
 
 class PostPage extends StatefulWidget {
-  const PostPage({Key key}) : super(key: key);
+  const PostPage({Key? key}) : super(key: key);
 
   @override
   State<PostPage> createState() => _PostPageState();
 }
 
 class _PostPageState extends State<PostPage> {
-  List<Post> posts;
+  List<Post>? posts;
   var isLoaded = false;
 
   @override
@@ -61,7 +60,7 @@ class _PostPageState extends State<PostPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          posts[index].title,
+                          posts![index].title,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
@@ -70,7 +69,7 @@ class _PostPageState extends State<PostPage> {
                           ),
                         ),
                         Text(
-                          posts[index].body ?? '',
+                          posts![index].body ?? '',
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
                         ),

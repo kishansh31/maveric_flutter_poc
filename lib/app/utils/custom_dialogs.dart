@@ -76,7 +76,7 @@ class CustomDialogTwo extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         child: GestureDetector(
-                          onTap: onPress1,
+                          onTap: onPress1(),
                           child: Container(
                             height: double.infinity,
                             margin: EdgeInsets.only(right: 5.0),
@@ -99,7 +99,7 @@ class CustomDialogTwo extends StatelessWidget {
                       ),
                       Expanded(
                         child: GestureDetector(
-                          onTap: onPress2,
+                          onTap: onPress2(),
                           child: Container(
                             margin: EdgeInsets.only(left: 5.0),
                             decoration: BoxDecoration(

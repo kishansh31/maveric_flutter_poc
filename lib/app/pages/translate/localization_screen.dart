@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:maveric_flutter_poc/app/pages/translate/world_language.dart';
 
 class LocalizationScreen extends StatefulWidget {
-  const LocalizationScreen({Key key}) : super(key: key);
+  const LocalizationScreen({Key? key}) : super(key: key);
+
 
   @override
   State<LocalizationScreen> createState() => _LocalizationScreenState();

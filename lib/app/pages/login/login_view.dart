@@ -16,7 +16,7 @@ class LoginView extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.white,
           statusBarIconBrightness: Brightness.dark,
           statusBarBrightness: Brightness.dark,
@@ -33,7 +33,7 @@ class LoginView extends StatelessWidget {
                 Column(
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     BannerImage('assets/mav_logo.png', 80),
@@ -82,7 +82,7 @@ class LoginView extends StatelessWidget {
                             loginController.changeButtonStatus();
                           },
                           child: Container(
-                            margin: EdgeInsets.only(top: 50, left: 20.0, right: 20.0),
+                            margin: const EdgeInsets.only(top: 50, left: 20.0, right: 20.0),
                             height: 50.0,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(6.0),
@@ -103,7 +103,7 @@ class LoginView extends StatelessWidget {
                 Positioned(
                   child: Visibility(
                     visible: loginController.isLoading.value ? true : false,
-                    child: Center(
+                    child: const Center(
                       child: CircularProgressIndicator(),
                     ),
                   ),

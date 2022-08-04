@@ -12,7 +12,7 @@ class LoginController extends GetxController {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  String verificationId;
+  late String verificationId;
 
   void signInWithPhoneAuthCredential(PhoneAuthCredential phoneAuthCredential) async {
     isLoading(true);
@@ -32,13 +32,14 @@ class LoginController extends GetxController {
         // Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeScreen()));
         Get.to(() => HomeScreen());
         Get.snackbar("title", "message");
-      }
+      }//onComplete()
     } on FirebaseAuthException catch (e) {
       isLoading(false);
       /*setState(() {
         showLoading = false;
       });*/
       Get.snackbar("Error", e.message.toString());
+      //onERROR()
 
       /*_scaffoldKey.currentState
           .showSnackBar(SnackBar(content: Text(e.message)));*/

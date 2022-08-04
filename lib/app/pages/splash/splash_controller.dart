@@ -7,8 +7,8 @@ import 'package:maveric_flutter_poc/app/pages/login/login_view.dart';
 
 class SplashController extends GetxController{
 
-  FirebaseAuth _auth;
-  User _user;
+  late FirebaseAuth _auth;
+  late User _user;
 
   var isLoading = true.obs;
 
@@ -20,7 +20,7 @@ class SplashController extends GetxController{
     print('Entered onInit method status for isLoading is : '+isLoading.value.toString());
 
     _auth = FirebaseAuth.instance;
-    _user = _auth.currentUser;
+     User? _user = _auth.currentUser;
 
 
     print('Firebase initialization is completed status for isLoading is : '+isLoading.value.toString());
@@ -59,7 +59,7 @@ class SplashController extends GetxController{
       // Get.offAll(() => LoginScreen());
       Get.offAll(() => LoginView());
     } else {
-      Get.offAll(() => HomeScreen());
+      Get.offAll(() => const HomeScreen());
     }
   }
 }

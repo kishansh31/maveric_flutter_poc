@@ -3,13 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:maveric_flutter_poc/app/pages/home/home_screen_controller.dart';
-import 'package:maveric_flutter_poc/app/pages/login/login_view.dart';
-import 'package:maveric_flutter_poc/app/pages/translate/localization_screen.dart';
-import 'package:maveric_flutter_poc/app/utils/const_colors.dart';
 import 'package:maveric_flutter_poc/app/utils/const_font_styles.dart';
 import 'package:maveric_flutter_poc/app/utils/const_strings.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   // HomeScreenController homeScreenController = Get.put(HomeScreenController(context: context));
 
   @override
@@ -20,7 +19,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           statusBarColor: Colors.blue,
           statusBarIconBrightness: Brightness.light,
         ),
@@ -40,8 +39,8 @@ class HomeScreen extends StatelessWidget {
                   homeScreenController.redirectionEvent(index);
                 },
                 child: Container(
-                  margin: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
-                  padding: EdgeInsets.only(left: 20.0),
+                  margin: const EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
+                  padding: const EdgeInsets.only(left: 20.0),
                   height: 60,
                   width: double.infinity,
                   decoration: BoxDecoration(

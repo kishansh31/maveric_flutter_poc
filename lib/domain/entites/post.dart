@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final post = postFromJson(jsonString);
-
 import 'dart:convert';
 
 List<Post> postFromJson(String str) =>
@@ -12,10 +8,10 @@ String postToJson(List<Post> data) =>
 
 class Post {
   Post({
-    this.userId,
-    this.id,
-    this.title,
-    this.body,
+    required this.userId,
+    required this.id,
+    required this.title,
+    required this.body,
   });
 
   int userId;
