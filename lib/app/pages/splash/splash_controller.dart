@@ -8,7 +8,7 @@ import 'package:maveric_flutter_poc/app/pages/login/login_view.dart';
 class SplashController extends GetxController{
 
   late FirebaseAuth _auth;
-  late User _user;
+  // late User _user;
 
   var isLoading = true.obs;
 
@@ -19,9 +19,11 @@ class SplashController extends GetxController{
 
     print('Entered onInit method status for isLoading is : '+isLoading.value.toString());
 
-    _auth = FirebaseAuth.instance;
-     User? _user = _auth.currentUser;
-
+    // _auth = FirebaseAuth.instance;
+    // print('Spalsh controller _auth.currentUser : '+_auth.currentUser.toString());
+    // _user = (_auth.currentUser??"") as User;
+    // _user = FirebaseAuth.instance.currentUser!;
+    // _user = (FirebaseAuth.instance.currentUser.toString()??"") as User;
 
     print('Firebase initialization is completed status for isLoading is : '+isLoading.value.toString());
 
@@ -43,10 +45,10 @@ class SplashController extends GetxController{
 
   void checkForRedierctions() {
     print('Future.delay is executed after 3 sec. duration');
-    if(_user != null) {
-      print('User data 2 is : '+_user.phoneNumber.toString());
-      print('User data 1 is : '+_user.displayName.toString());
-      print('User data 3 is : '+_user.email.toString());
+    if(FirebaseAuth.instance.currentUser != null) {
+      print('User data 2 is : '+FirebaseAuth.instance.currentUser!.phoneNumber.toString());
+      print('User data 1 is : '+FirebaseAuth.instance.currentUser!.displayName.toString());
+      print('User data 3 is : '+FirebaseAuth.instance.currentUser!.email.toString());
     } else {
       print('Sorry we don\'t find user\'s data');
     }
@@ -55,11 +57,11 @@ class SplashController extends GetxController{
     // If user has already logged in the application then we will redirect to home screen..
     // Otherwise we have redire the user to Login screen..
 
-    if(_user == null) {
+    if(FirebaseAuth.instance.currentUser == null) {
       // Get.offAll(() => LoginScreen());
       Get.offAll(() => LoginView());
     } else {
-      Get.offAll(() => const HomeScreen());
+      Get.offAll(() => HomeScreen());
     }
   }
 }
